@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/nolanlarochelle/Downloads/Sharendar/env"
+set -gx VIRTUAL_ENV "/Users/danesantos/Desktop/Sharendar/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
