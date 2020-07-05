@@ -1,0 +1,10 @@
+ali/*
+ali/
+env/
+env/* 
+nolan/
+nolan/*
+venv/* 
+venv/ 
+.vscode/
+.vscode/* 
