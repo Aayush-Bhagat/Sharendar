@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit">
+</form>
+
 {% for event in events%}
     <h1> {{event.title}} </h1>
 {%endfor%}
