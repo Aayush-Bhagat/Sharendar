@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+{% include "backend/index.html"%}
 <form method="POST" action="">
     {% csrf_token %}
     {{form}}
@@ -8,4 +9,7 @@
 
 {% for event in events%}
     <h1> {{event.title}} </h1>
+    <button class="btn btn-primary"> <a  href="{% url 'update_event' event.id %}">  </a> Update </button>
+    <button class="btn btn-primary"> <a  href="{% url 'delete_event' event.id %}">  </a> Delete </button>
+
 {%endfor%}

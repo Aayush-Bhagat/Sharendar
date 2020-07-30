@@ -1,0 +1,10 @@
+<p>
+    Are you sure you want to delete?
+</p>
+<p>
+    {{event}}
+</p>
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="submit" name="confirm">
+</form>
