@@ -1,20 +1,105 @@
-<h1>
-    Login
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=MuseoModerno:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+<style>
+	.form{
+		margin: auto;
+  		width: 20%;
+		border: 10px;
+		border-radius: 20px;
+		height: auto;
+		border-color: black;
+
+		
+	}
+	.login{
+		position: relative; left: 11.5%; top: 10%;
+		margin: auto;
+  		width: 50%;
+  		border: none;
+		border-radius: 20px;
+		height: auto;
+		font-family: 'Raleway', sans-serif;
+		font-size: 60px;
+		margin-bottom: 20px;
+	}
+	.form-control{
+	position: relative; left: -120px; top: 80px;
+    margin:  auto;
+    width: 350px;
+    height: 55px;  
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(238, 236, 236);
+    font-size: 16px;
+	font: bold;
+    padding-left: 15px;
+	margin-bottom: 20px;
+	font-family: 'Raleway', sans-serif;
+	outline: none;
+	color: black;
+    
+}
+.btn{
+    width: 150px;
+    height: 42px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: #17a4fc;
+    font-size: 20px;
+	position: relative; left: -15%; top: 90px; 
+	color: white;
+	border: none;
+	font-family: 'Raleway', sans-serif;
+
+	  
+}
+
+.d-flex{
+	position: relative; left: 5%; top: 42%;
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+
+}
+.bgimage{
+    vertical-align: middle;
+	background-color: #FAACA8;
+	background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    padding-top: 7%;
+	width: 60%;
+}
+.loginbg{
+	background-color:white;
+	height: 550px;
+	width: 550px;
+	position: absolute; left: 35.5%; top: 20%;
+	border-radius: 30px;
+}
+
+
+</style>
+<body class="bgimage">
+
+
+<div class="loginbg">
+<h1 class="login">
+	Login
 </h1>
-				<form method="POST" action="">
-						{% csrf_token %}
+	<form method="POST" action="" class="form">
+		{% csrf_token %}
 
-							<input type="text" name="username" placeholder="Username..." class="form-control">
-							<input type="password" name="password" placeholder="Password..." class="form-control" >
-				 			<input class="btn login_btn" type="submit" value="Login">
+		<input type="text" name="username" placeholder="Username" class="form-control">
+		<input type="password" name="password" placeholder="Password" class="form-control" >
+		<input class="btn login_btn" type="submit" value="Login">
 				   			
-                        </form>
+        </form>
 
-				{% for message in messages %}
-					<p id="messages">{{message}}</p>
-				{% endfor %}			
+	{% for message in messages %}
+		<p id="messages">{{message}}</p>
+	{% endfor %}			
 	
-					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
-					</div>
+	<div class="d-flex justify-content-center links">
+		Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+	</div>
+</div>
+</body>
 			
