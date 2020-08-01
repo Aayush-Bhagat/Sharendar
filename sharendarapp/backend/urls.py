@@ -8,5 +8,7 @@ urlpatterns = [
    path('delete/<str:pk>/', views.deleteEvent, name= "delete_event"),
    path('register', views.registerUser, name="register"),
    path('login', views.loginUser, name="login"),
+   path('logout', views.logoutUser, name="logout"),
+
 
 ]

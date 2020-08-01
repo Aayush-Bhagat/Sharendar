@@ -45,6 +45,12 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <button type="submit" class="btn btn-primary"> <a  href="{% url 'register'%}" style = "color:white"> Register </a> </button>
+          {% if user.is_authenticated %}
+          <h6 style="color:white"> Hello, {{ request.user }} </h6>
+          <button type="submit" class="btn btn-primary"> <a  href="{% url 'logout'%}" style = "color:white"> Logout </a> </button>
+          {% else %}
+          <button type="submit" class="btn btn-primary"> <a  href="{% url 'login'%}" style = "color:white"> Login </a> </button>
+          {% endif %}
         </div>
       </nav>
     <!-- Optional JavaScript -->
