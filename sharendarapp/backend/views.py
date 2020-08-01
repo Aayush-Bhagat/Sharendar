@@ -7,7 +7,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
 def home(request):
-    events = Events.objects.all()
+    if request.user.is_authenticated:
+        user=request.user
+        events = Events.objects.filter(user=user)
+    
 
     form = EventForm()
 
@@ -88,6 +91,9 @@ def loginUser(request):
     }
     return render(request, 'backend/login.html', context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
 
 
