@@ -11,6 +11,7 @@
         font-family: 'Raleway', sans-serif;
 	    outline: none;
 	    color: black;
+        
     }
 
     input[type= "email"]{
@@ -24,6 +25,7 @@
         font-family: 'Raleway', sans-serif;
 	    outline: none;
 	    color: black;
+        
     }
     input[type= "password"]{
         width: 350px;
@@ -36,6 +38,7 @@
         font-family: 'Raleway', sans-serif;
 	    outline: none;
 	    color: black;
+        
     }
     .bg{
         background-color: #FEE140;
@@ -43,6 +46,8 @@
     }
 
     .register{
+        position: relative;
+        left: 160px;
 		height: auto;
 		font-family: 'Raleway', sans-serif;
 		font-size: 60px;
@@ -52,41 +57,73 @@
     }
 
     .btn{
-    width: 90px;
-    height: 42px;
-    border-radius: 20px;
-    border-color: black;
-    margin: auto;
-    background-color: transparent;
-    font-size: 15px;
+        width: 150px;
+        height: 42px;
+        border-radius: 20px;
+        margin: auto;
+        background-color: #17a4fc;
+        font-size: 20px;
+        position: relative; left: 35%; top: 0px; 
+        color: white;
+        border: none;
+        font-family: 'Raleway', sans-serif;
+        outline: none;  
     }
 
     * {
         font-family: 'Raleway', sans-serif;
         font-size: 20px;
-
     }
 
-
-
-
+    .registerbg{
+        background-color:white;
+        height: 550px;
+        width: 550px;
+        position: absolute; left: 35.5%; top: 20%;
+        border-radius: 30px;
+        box-shadow: 6px 6px 15px 1px rgba(0,0,0,0.2);
+    }
+    .form-control{
+        top: -20px;
+        position: relative;
+        right: 50px;
+        padding-bottom: 10px;
+        margin:  auto;
+        width: 350px;
+        height: 55px;  
+        border: none;
+        font-size: 16px;
+        font: bold;
+        padding-left: 15px;
+        margin-bottom: 20px;
+        font-family: 'Raleway', sans-serif;
+        outline: none;
+        color: black;
+    }
 </style>
 
 <body class="bg">
-<h1 class="register">
-    Register
-</h1>
-<form method = "POST" action="">
-    {% csrf_token %}
-
-    {% for field in form%}
-        {{field.label}}:
-        {{field}}
-
-    {% endfor %}
-
-    {{form.errors}}
+    <div class="registerbg">
+        <h1 class="register">
+            Sign Up
+        </h1>
+        <form method = "POST" action="" class="form">
+            {% csrf_token %}
     
-    <input type="submit" name ="Create User" class="btn">
-</form>
+            {% for field in form%}
+                <div class="form-control">
+                    <ul style="list-style-type:none">
+                        <li>
+                        {{field.label}}
+                        {{field}} 
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+    
+            {{form.errors}}
+            
+            <input type="submit" name ="Create User" class="btn">
+        </form>
+    </div>
 </body>
