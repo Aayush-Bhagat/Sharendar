@@ -7,8 +7,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url="login")
 def home(request):
+    return render(request, 'backend/homepage.html')
+
+
+@login_required(login_url="login")
+def events(request):
     if request.user.is_authenticated:
         user=request.user
         events = Events.objects.filter(user=user)
@@ -87,7 +91,7 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-            return redirect("/")
+            return redirect("events")
     context = {
         
     }
