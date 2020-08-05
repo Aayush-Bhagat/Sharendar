@@ -5,7 +5,9 @@ from .forms import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url="login")
 def home(request):
     if request.user.is_authenticated:
         user=request.user
