@@ -6,6 +6,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from rest_framework import permissions
+from .serializers import EventSerializer
 
 def home(request):
     return render(request, 'backend/homepage.html')
@@ -101,5 +104,7 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Events.objects.all()
+    serializer_class = EventSerializer
 
