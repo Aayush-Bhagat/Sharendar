@@ -105,6 +105,20 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+@login_required(login_url="login")
+def profileUser(request):
+    user=request.user
+    events = Events.objects.filter(user=user)
+    profile = userProfile.objects.get(user= user)
+
+    context = {
+        'events': events,
+        'profile': profile,
+        'user': user,
+    }
+
+    return render(request, 'backend/user.html', context)
+
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Events.objects.all()
     serializer_class = EventSerializer

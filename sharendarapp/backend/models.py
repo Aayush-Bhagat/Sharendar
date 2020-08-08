@@ -15,3 +15,15 @@ class Events(models.Model):
         return self.title
 
 
+class userProfile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField(max_length = 300, blank=True)
+    contact1 = models.TextField(max_length = 100, blank=True)
+    contact2 = models.TextField(max_length = 100, blank=True)
+    contact3 = models.TextField(max_length = 100, blank=True)
+    contact4 = models.TextField(max_length = 100, blank=True)
+
+    def __str__(self):
+        return self.bio
+
+
