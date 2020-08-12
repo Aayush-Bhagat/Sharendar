@@ -137,3 +137,5 @@ class PermissionViewSet(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
     serializer_class = PermissionSerializer
 
+def calendar(request):
+    return render(request, 'backend/calendar.html')
