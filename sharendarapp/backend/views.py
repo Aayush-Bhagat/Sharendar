@@ -21,6 +21,7 @@ from .forms import *
 
 loginURL = reverse_lazy("backend:login")
 
+@login_required(login_url= loginURL)
 def home(request):
     return render(request, 'backend/homepage.html')
 
@@ -48,6 +49,7 @@ def events(request):
 
     return render(request, 'backend/list.html', context)
 
+@login_required(login_url= loginURL)
 def updateEvent(request, pk):
     event = Events.objects.get(id = pk)
 
@@ -65,6 +67,7 @@ def updateEvent(request, pk):
 
     return render(request, 'backend/update.html', context)
 
+@login_required(login_url= loginURL)
 def deleteEvent(request, pk):
     event = Events.objects.get(id = pk)
 
@@ -115,10 +118,12 @@ def logoutUser(request):
     logout(request)
     return redirect(reverse('backend:login'))
 
+
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Events.objects.all()
     serializer_class = EventSerializer
     permission_classes = [permissions.IsAuthenticated]
+
 
 class UserViewSet(viewsets.ModelViewSet):
 
@@ -126,12 +131,14 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
 class PermissionViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows permissions to be viewed or edited.
     """
     queryset = Permission.objects.all()
     serializer_class = PermissionSerializer
+
 
 class CalendarView(generic.ListView):
     model = Events
