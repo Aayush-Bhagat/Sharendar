@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse
 
 
 # Create your models here.
@@ -13,6 +14,11 @@ class Events(models.Model):
     
     def __str__(self):
         return self.title
+    
+    @property
+    def get_html_url(self):
+        url = reverse('backend:update_event', args=(self.id,))
+        return f'<a href="{url}"> {self.title} </a>'
 
 
 class userProfile(models.Model):

@@ -46,10 +46,10 @@
           </form>
           {% if user.is_authenticated %}
           <h6 style="color:white"> Hello, {{ request.user }} </h6>
-          <button type="submit" class="btn btn-primary"> <a  href="{% url 'logout'%}" style = "color:white"> Logout </a> </button>
+          <button type="submit" class="btn btn-primary"> <a  href="{% url 'backend:logout'%}" style = "color:white"> Logout </a> </button>
           {% else %}
-          <button type="submit" class="btn btn-primary"> <a  href="{% url 'login'%}" style = "color:white"> Login </a> </button>
-          <button type="submit" class="btn btn-primary"> <a  href="{% url 'register'%}" style = "color:white"> Register </a> </button>
+          <button type="submit" class="btn btn-primary"> <a  href="{% url 'backend:login'%}" style = "color:white"> Login </a> </button>
+          <button type="submit" class="btn btn-primary"> <a  href="{% url 'backend:register'%}" style = "color:white"> Register </a> </button>
           {% endif %}
         </div>
       </nav>

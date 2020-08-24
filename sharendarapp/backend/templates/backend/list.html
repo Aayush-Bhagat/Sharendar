@@ -9,7 +9,7 @@
 
 {% for event in events%}
     <h1> {{event.title}} </h1>
-    <button name ="Update" class="btn btn-primary"> <a  href="{% url 'update_event' event.id %}" style = "color:white">  Update  </a> </button>
-    <button name ="Delete"  class="btn btn-danger"> <a  href="{% url 'delete_event' event.id %}" style = "color:white"> Delete </a>  </button>
+    <button name ="Update" class="btn btn-primary"> <a  href="{% url 'backend:update_event' event.id %}" style = "color:white">  Update  </a> </button>
+    <button name ="Delete"  class="btn btn-danger"> <a  href="{% url 'backend:delete_event' event.id %}" style = "color:white"> Delete </a>  </button>
 
 {%endfor%}
