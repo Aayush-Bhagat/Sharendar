@@ -136,12 +136,13 @@ class PermissionViewSet(viewsets.ModelViewSet):
 class CalendarView(generic.ListView):
     model = Events
     template_name = 'backend/calendar.html'
+    
 
     def get_context_data(self, **kwargs):
-
+        user_query = self.request.user
         context = super().get_context_data(**kwargs)
         d = get_date(self.request.GET.get('month', None))
-        cal = Calendar(d.year, d.month)
+        cal = Calendar(d.year, d.month, user_query)
         html_cal = cal.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
         context['prev_month'] = prev_month(d)
