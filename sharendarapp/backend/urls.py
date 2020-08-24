@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
 
 
 app_name = 'backend'
@@ -13,5 +14,5 @@ urlpatterns = [
    url(r'register', views.registerUser, name="register"),
    url(r'login/', views.loginUser, name="login"),
    url(r'logout', views.logoutUser, name="logout"),
-   url(r'^calendar/$', views.CalendarView.as_view(), name='calendar'),
+   url(r'^calendar/$', login_required(views.CalendarView.as_view()), name='calendar'),
 ]
